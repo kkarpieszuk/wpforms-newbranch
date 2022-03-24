@@ -13,7 +13,8 @@ Click below to see video on youtube:
 Download:
 
 ```shell
-curl -0 https://github.com/kkarpieszuk/wpforms-newbranch/raw/main/wpforms-newbranch.phar
+git clone git@github.com:kkarpieszuk/wpforms-newbranch.git
+cd wpforms-newbranch
 ```
 
 Move file somewhere in your PATH, for example:
