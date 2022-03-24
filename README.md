@@ -4,6 +4,10 @@
 
 Create git branch name which meets WPForms team naming convention
 
+Click below to see video on youtube:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/r3Mkgu3roTg/0.jpg)](https://www.youtube.com/watch?v=r3Mkgu3roTg)
+
 ## Installation
 
 Download:
