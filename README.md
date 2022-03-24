@@ -35,7 +35,7 @@ The command above will create branch `core/123-copied-issue-title`.
 
 ### Tips, tricks and examples.
 
-Don't forget to wrap the title and id in the quotes (without them shell will interporet everything after `#` as comment and ignore ID).
+Don't forget to wrap the title and id in the quotes (without them shell will interpret everything after `#` as comment and ignore ID).
 
 If you want to create branch in other namespace than `core/` just add it on the beggining of the title:
 
