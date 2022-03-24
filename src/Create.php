@@ -3,35 +3,26 @@
 namespace awesomemotive\NewBranch;
 
 use Cocur\Slugify\Slugify;
-use Diversen\ParseArgv;
 
 class Create {
 
 	public function from_title_and_id() {
 
-		$p = new ParseArgv();
+		global $argv;
 
-		var_dump( $p->flags );
+		$arguments = implode( ' ', array_slice( $argv, 1 ) );
 
-		$config = [
-			'title' => [
-				'alias'  => 't',
-				'help'   => '.Title and ID copied from issue title, just above issue description. The correct pattern is "{issue title} #{issue id}"',
-				'filter' => 'string',
-			],
-			'addon' => [
-				'alias' => 'a',
-				'default' => 'core',
-				'help'  => 'Addon slug.',
-				'filter' => 'string',
-			]
-		];
+		$namespace_and_title = explode( "/", $arguments );
 
+		if ( count( $namespace_and_title ) > 1 ) {
+			$namespace = trim( $namespace_and_title[0] );
+			$title_and_id = implode( ' ', array_slice( $namespace_and_title, 1 ) );
+		} else {
+			$namespace = 'core';
+			$title_and_id = implode( ' ', $namespace_and_title );
+		}
 
-
-		$title_and_id = explode( '#', implode( ' ', $p->values ) );
-
-		var_dump( $title_and_id );
+		$title_and_id = explode( '#', $title_and_id );
 
 		if ( count( $title_and_id ) < 2 ) {
 			exit( 'Incorrect title and id has been pasted. Please provide value copied from issue title above issue description. The correct pattern is "{issue title} #{issue id}"' . PHP_EOL );
@@ -39,18 +30,18 @@ class Create {
 
 		$slugify = new Slugify();
 
-		$id = array_pop( $title_and_id );
-		$title = implode( ' ', $title_and_id );
+		$id = trim( array_pop( $title_and_id ) );
+		$title = trim( implode( ' ', $title_and_id ) );
 
-		$slug = $slugify->slugify( sprintf( '%d %s', trim( $id ), trim( $title ) ) );
+		$slug = $slugify->slugify( sprintf( '%d %s', $id, $title ) );
 
 		$branchname = sprintf(
 			'%s/%s',
-			$p->flags['a'],
+			$namespace,
 			$slug
 		);
 
-		print( $branchname . PHP_EOL );
+		print( 'Creating branch with name ' . $branchname . PHP_EOL );
 		exit(0);
 	}
 }

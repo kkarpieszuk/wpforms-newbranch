@@ -11,8 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "cocur/slugify": "dev-master",
-        "diversen/parse-argv": "^2.0"
+        "cocur/slugify": "dev-master"
     },
   "autoload": {
     "psr-4": {
