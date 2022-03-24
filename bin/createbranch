@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+if ( is_file( __DIR__ . '/../autoload.php') === true) {
+    include_once __DIR__.'/../autoload.php';
+} else {
+    include_once 'vendor/autoload.php';
+}
+
+
+$create = new \awesomemotive\NewBranch\Create();
+
+$create->from_title_and_id();
+

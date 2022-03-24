@@ -1,0 +1,25 @@
+{
+    "name": "awesomemotive/wpforms-newbranch",
+    "description": "Create git branch name which meets WPForms team naming convention",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konrad Karpieszuk",
+            "email": "kkarpieszuk@awesomemotive.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "cocur/slugify": "dev-master",
+        "diversen/parse-argv": "^2.0"
+    },
+  "autoload": {
+    "psr-4": {
+      "awesomemotive\\NewBranch\\": "src/"
+    }
+  },
+  "bin": [
+    "bin/createbranch"
+  ]
+}
