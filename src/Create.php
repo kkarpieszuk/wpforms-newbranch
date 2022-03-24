@@ -41,9 +41,9 @@ class Create {
 			$slug
 		);
 
-		print( 'Creating branch with name ' . $branchname . PHP_EOL );
-
 		shell_exec( sprintf( 'git checkout -b %s > /dev/null 2>&1', $branchname ) );
+		print( 'Created branch with name ' . $branchname . PHP_EOL );
+
 		exit(0);
 	}
 }
