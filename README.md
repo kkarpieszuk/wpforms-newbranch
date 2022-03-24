@@ -17,7 +17,7 @@ git clone git@github.com:kkarpieszuk/wpforms-newbranch.git
 cd wpforms-newbranch
 ```
 
-Move file somewhere in your PATH, for example:
+Move `wpforms-newbranch.phar` file somewhere in your PATH, for example:
 
 ```shell
 chmod +x wpforms-newbranch.phar
