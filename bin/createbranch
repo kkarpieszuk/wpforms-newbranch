@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-if ( is_file( __DIR__ . '/../autoload.php') === true) {
-    include_once __DIR__.'/../autoload.php';
+if ( is_file( __DIR__ . '/../vendor/autoload.php') === true) {
+    include_once __DIR__.'/../vendor/autoload.php';
 } else {
     include_once 'vendor/autoload.php';
 }
