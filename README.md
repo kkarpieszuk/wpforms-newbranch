@@ -44,4 +44,4 @@ newbranch "wpforms-user-registration/This is the title of some ticket for WPForm
 > Created branch with name wpforms-user-registration/222-this-is-the-title-of-some-ticket-for-wpforms-user-registration-addon
 ```
 
-
+If you forget providing ID at the end of the title, the prompt will ask you to enter it.
