@@ -25,13 +25,13 @@ class Create {
 		$title_and_id = explode( '#', $title_and_id );
 
 		if ( count( $title_and_id ) < 2 ) {
-			exit( 'Incorrect title and id has been pasted. Please provide value copied from issue title above issue description. The correct pattern is "{issue title} #{issue id}"' . PHP_EOL );
+			$id = readline( 'I did not recognize ID at the end of copied title. Please enter it manually: ' );
+		} else {
+			$id = trim( array_pop( $title_and_id ) );
 		}
 
+		$title   = trim( implode( ' ', $title_and_id ) );
 		$slugify = new Slugify();
-
-		$id = trim( array_pop( $title_and_id ) );
-		$title = trim( implode( ' ', $title_and_id ) );
 
 		$slug = $slugify->slugify( sprintf( '%d %s', $id, $title ) );
 
