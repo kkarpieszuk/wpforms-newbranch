@@ -47,7 +47,15 @@ class Create {
 		exit(0);
 	}
 
-	private function xreadline ($prompt, $prefill = '' ) {
+	/**
+	 * Display bash prompt with prefilled expected value.
+	 *
+	 * @param string $prompt  The prompt text.
+	 * @param string $prefill Prefilled value.
+	 *
+	 * @return false|string
+	 */
+	private function xreadline($prompt, $prefill = '' ) {
 		return exec ('/bin/bash -c \'read -r -p "'.$prompt.'" -i "'.$prefill.'" -e STRING;echo "$STRING";\'');
 	}
 }
