@@ -25,7 +25,7 @@ class Create {
 		$title_and_id = explode( '#', $title_and_id );
 
 		if ( count( $title_and_id ) < 2 ) {
-			$id = readline( 'I did not recognize ID at the end of copied title. Please enter it manually: ' );
+			$id = $this->xreadline( 'I did not recognize ID at the end of copied title. Please enter it manually: ' );
 		} else {
 			$id = trim( array_pop( $title_and_id ) );
 		}
@@ -45,5 +45,9 @@ class Create {
 		print( 'Created branch with name ' . $branchname . PHP_EOL );
 
 		exit(0);
+	}
+
+	private function xreadline ($prompt, $prefill = '' ) {
+		return exec ('/bin/bash -c \'read -r -p "'.$prompt.'" -i "'.$prefill.'" -e STRING;echo "$STRING";\'');
 	}
 }
