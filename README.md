@@ -45,3 +45,15 @@ newbranch "wpforms-user-registration/This is the title of some ticket for WPForm
 ```
 
 If you forget providing ID at the end of the title, the prompt will ask you to enter it.
+
+### Development
+
+To build tool from source run in main directory:
+```shell
+vendor/bin/phar-composer build .
+```
+
+To run development version from sources run:
+```shell
+bin/createbranch "test branch bame #123"
+```
