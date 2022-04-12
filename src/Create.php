@@ -61,7 +61,7 @@ class Create {
 
 		$keywords = trim( implode( ' ', $component_and_tags ) );
 
-		$keywords = $this->xreadline( 'Provide some keywordswhich should be added to branch name: ', $keywords );
+		$keywords = $this->xreadline( 'Provide some keywords which should be added to branch name: ', $keywords );
 
 		$slugify = new Slugify();
 
@@ -72,6 +72,11 @@ class Create {
 			$slugify->slugify( $plugin ),
 			$slug
 		) : $slug;
+
+		print( "I am going to create a branch with the following name. You can edit it and then press enter to accept. Press ctrl+C to exit:" . PHP_EOL );
+		$branchname = $this->xreadline( '', $branchname );
+
+		$branchname = str_replace( 'slashplaceholder', '/', $slugify->slugify( str_replace( "/", "slashplaceholder", $branchname ) ) );
 
 		shell_exec( sprintf( 'git checkout -b %s > /dev/null 2>&1', $branchname ) );
 		print( 'Created branch with name ' . $branchname . PHP_EOL );

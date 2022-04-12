@@ -26,25 +26,40 @@ sudo mv wpforms-newbranch.phar /usr/local/bin/newbranch
 
 ## Usage
 
-1. Go to the issue description on the Github page and copy issue title with "#" and issue number at the end.
-2. In the main directory of wpforms-plugin (ususally `wp-content/plugins`) run:
+This tool expects (but not strictly requires) as the first parameter the string which will be converted into branch name:
+
 ```shell
-newbranch "Copied issue title #123"
+# example command:
+newbranch "core/email field: values not sanitized #123"
+# the above will create branch with name 
+# core/123-email-field-values-not-sanitized
 ```
-The command above will create branch `core/123-copied-issue-title`.
+
+The "perfect" parameter fits following pattern:
+```shell
+{plugin or addon name}/{component name}: {issue keywords} #{issue ID}
+```
+However, none of those parts are required. If you skip some of them or `newbranch` tool will not be able to recignize them for any other reason, it will interactively ask you to provide missing parts. 
+
+You can even run the tool without any parameters and it will run the wizard:
+
+```shell
+bin/createbranch 
+Select namespace for the branch. Selected namespace will be prepended to the branch name and followed by slash.
+0: (skip the namespace part)    16: mailchimp 
+1: core                         17: offline-forms 
+2: activecampaign               18: paypal-standard 
+[...]
+14: getresponse                 30: zapier 
+15: hubspot 
+Please provide the number: 1
+I did not recognize ID at the end of copied title. Please enter it manually: 123
+Please provide component, feature or field this branch is relevant (leave empty to skip): 
+```
 
 ### Tips, tricks and examples.
 
 Don't forget to wrap the title and id in the quotes (without them shell will interpret everything after `#` as comment and ignore ID).
-
-If you want to create branch in other namespace than `core/` just add it on the beggining of the title:
-
-```shell
-newbranch "wpforms-user-registration/This is the title of some ticket for WPForms User Registration addon #222"
-> Created branch with name wpforms-user-registration/222-this-is-the-title-of-some-ticket-for-wpforms-user-registration-addon
-```
-
-If you forget providing ID at the end of the title, the prompt will ask you to enter it.
 
 ### Development
 
