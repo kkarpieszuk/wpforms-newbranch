@@ -10,6 +10,10 @@ Click below to see video on youtube:
 
 ## Installation
 
+Requirements:
+
+- PHP >=7.4
+
 Download:
 
 ```shell
