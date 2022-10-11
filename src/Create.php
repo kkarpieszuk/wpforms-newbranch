@@ -54,6 +54,16 @@ class Create {
 
 		$slug = $this->slugify->slugify( sprintf( '%d %s %s', $id, $component, $keywords ) );
 
+		$words = 4;
+
+		while ( $this->slug_too_long( $slug, $words ) ) {
+
+			$fix_slug = $this->xreadline( sprintf( 'This slug has too many words, please shorten it to have not more than %d words: ', $words ), $slug );
+			$slug     = $this->slugify->slugify( $fix_slug );
+
+			$words++;
+		}
+
 		$branchname = $this->plugin ? sprintf(
 			'%s/%s',
 			$this->slugify->slugify( $this->plugin ),
@@ -67,6 +77,19 @@ class Create {
 		print( 'Created branch with name ' . $branchname . PHP_EOL );
 
 		exit(0);
+	}
+
+	/**
+	 * Checks if string has more words than $length delimiters.
+	 *
+	 * @param string $slug  Slug to verify.
+	 * @param int    $words Number of allowed words, default 3.
+	 *
+	 * @return bool
+	 */
+	private function slug_too_long( $slug, $words = 4 ) {
+
+		return substr_count( $slug, '-' ) > $words;
 	}
 
 	/**

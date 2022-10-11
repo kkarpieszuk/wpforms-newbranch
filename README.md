@@ -74,5 +74,5 @@ vendor/bin/phar-composer build .
 
 To run development version from sources run:
 ```shell
-bin/createbranch "test branch bame #123"
+bin/createbranch "test branch name #123"
 ```
