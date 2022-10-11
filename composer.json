@@ -11,16 +11,17 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "cocur/slugify": "dev-master"
+      "php": ">=7.4",
+      "cocur/slugify": "dev-master"
     },
-  "autoload": {
-    "psr-4": {
-      "awesomemotive\\NewBranch\\": "src/"
-    }
-  },
-  "bin": [
-    "bin/createbranch"
-  ],
+    "autoload": {
+      "psr-4": {
+        "awesomemotive\\NewBranch\\": "src/"
+      }
+    },
+    "bin": [
+      "bin/createbranch"
+    ],
     "require-dev": {
         "clue/phar-composer": "dev-master"
     }
