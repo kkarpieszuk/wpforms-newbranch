@@ -23,6 +23,6 @@
       "bin/createbranch"
     ],
     "require-dev": {
-        "clue/phar-composer": "dev-master"
+        "clue/phar-composer": "*"
     }
 }
